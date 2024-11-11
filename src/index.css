@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Animacja lewitacji strzałki */
+@keyframes levitate {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Styl dla przycisku strzałki */
+.scroll-to-top-btn {
+  opacity: 0;
+  transform: translateY(50px); /* Początkowa pozycja poza ekranem */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: levitate 2s ease-in-out infinite; /* Animacja lewitacji */
+}
+
+/* Kiedy strzałka jest widoczna */
+.scroll-to-top-btn.show {
+  opacity: 1;
+  transform: translateY(0); /* Po osiągnięciu pełnej widoczności, strzałka wraca do normalnej pozycji */
+}
